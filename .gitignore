@@ -1,0 +1,11 @@
+#Compiled files
+build
+
+# Dependency directories
+node_modules
+
+# Local development environment variables
+.env
+
+# coverage test directory
+coverage
