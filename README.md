@@ -28,3 +28,12 @@
 - [X] Os dados da aplicação precisam estar persistidos em um banco PostgresSQL;
 - [X] Todas as listas de dados precisam estar paginadas com 20 itens por paginas;
 - [X] O usuário deve ser identificado por um JWT;
+
+# Tests
+Os testes foram feitos utilizando o Vitest e Supertest.
+
+## E2E Tests
+Para cada teste foi criado um environment diferente, sendo assim os testes foram rodados em um ambiente seguro e sem nehuma conexão com o banco de dados da produção, outro ponto que vale resaltar é que cada rota de teste e2e é criado um schema diferente para o banco de dados, sendo assim nenhum teste interfere no outro, ao terminar os testes é derrubado esse serviço.
+
+## Unit Test
+Para cada caso de uso foi criado um teste, para verificar a integridade das funções.
