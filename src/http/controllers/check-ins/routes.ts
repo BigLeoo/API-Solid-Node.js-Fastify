@@ -4,6 +4,7 @@ import { create } from './create'
 import { history } from './history'
 import { validate } from './validate'
 import { metrics } from './metrics'
+import { verifyUserRole } from '@/http/middlewares/verify-user-role'
 
 export async function checkInsRoutes(app: FastifyInstance) {
   // All routes need user to be authenticated
@@ -14,5 +15,9 @@ export async function checkInsRoutes(app: FastifyInstance) {
   app.get('/check-ins/history', history)
   app.get('/check-ins/metrics', metrics)
 
-  app.patch('/check-ins/:checkInId/validate', validate)
+  app.patch(
+    '/check-ins/:checkInId/validate',
+    { onRequest: [verifyUserRole('ADMIN')] },
+    validate,
+  )
 }
